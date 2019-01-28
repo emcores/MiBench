@@ -31,6 +31,7 @@
 /* The HAVE_SYS_TIME_H switch in gconfig_.h reflects this. */
 #ifdef HAVE_SYS_TIME_H
 #  include <sys/time.h>
+#  include <time.h> // needed on modern systems http://archives.linuxfromscratch.org/mail-archives/blfs-support/2001-May/007466.html
 #  if defined(M_UNIX) || defined(_IBMR2)	/* SCO and AIX need both time.h and sys/time.h! */
 #    include <time.h>
 #  endif
