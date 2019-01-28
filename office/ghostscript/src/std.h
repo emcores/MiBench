@@ -109,7 +109,7 @@ typedef ulong bits32;
 
 /*
  * Standard error printing macros.
- * Use dprintf for messages that just go to dstderr,
+ * Use dprintf_ for messages that just go to dstderr,
  * eprintf for error messages to estderr that include the program name,
  * lprintf for debugging messages that should include line number info.
  * Since we intercept fprintf to redirect output under MS Windows,
@@ -125,7 +125,7 @@ typedef ulong bits32;
 
 #define dputc(chr) dprintf1("%c", chr)
 #define dputs(str) dprintf1("%s", str)
-#define dprintf(str)\
+#define dprintf_(str)\
   fprintf(dstderr, str)
 #define dprintf1(str,arg1)\
   fprintf(dstderr, str, arg1)
