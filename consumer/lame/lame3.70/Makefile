@@ -73,8 +73,8 @@ ifeq ($(UNAME),Linux)
 #   GTK = -DHAVEGTK `gtk-config --cflags`
 #   GTKLIBS = `gtk-config --libs` 
 # Comment out next 2 lines if you want to remove VBR histogram capability
-   BRHIST_SWITCH = -DBRHIST
-   LIBTERMCAP = -lncurses
+#   BRHIST_SWITCH = -DBRHIST
+#   LIBTERMCAP = -lncurses
 
 
 # suggested for gcc-2.7.x
