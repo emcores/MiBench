@@ -8,8 +8,8 @@ The results below are obtained on Ubuntu 16.04 using gcc (Ubuntu 5.4.0-6ubuntu1~
 | automotive/bitcount | :white_check_mark: | :white_check_mark: |  |
 | automotive/qsort | :white_check_mark: | :white_check_mark: |  |
 | automotive/susan | :white_check_mark: | :white_check_mark: |  |
-| consumer/jpeg | :white_check_mark: |  | :white_check_mark: |
-| consumer/lame | :white_check_mark: |  | :x:  |
+| consumer/jpeg | :white_check_mark: | :white_check_mark: |  |
+| consumer/lame | :white_check_mark: | :x: |   |
 | consumer/mad | :white_check_mark: | :white_check_mark: | Removed `-fforce-mem` option from `configure` and `configure.in` under `libmad` and removed `id3tag` support using `./configure --without-id3tag`|
 | consumer/tiff | :white_check_mark: | :x: | Added `-lm` to `LIBS` under `tools`; runs but error `Seek error accessing TIFF directory`  |
 | consumer/typeset | :white_check_mark: | :white_check_mark: |   |
