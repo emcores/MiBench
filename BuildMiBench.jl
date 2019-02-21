@@ -51,8 +51,10 @@ function build_security(wd)
     app = "pgp"
     deleteat!(apps,apps .== app)
     cd(app)
+    cd("src")
     run(`make clean`)
     run(`make linux-portable`)
+    cd("..")
     cd("..")
 
     # handle the rest of the apps
