@@ -341,50 +341,40 @@ toastuninstall:
 		fi
 
 $(TOAST_INSTALL_BIN)/toast:	$(TOAST)
-		-rm $@
 		cp $(TOAST) $@
 		chmod 755 $@
 
 $(TOAST_INSTALL_BIN)/untoast:	$(TOAST_INSTALL_BIN)/toast
-		-rm $@
 		ln $? $@
 
 $(TOAST_INSTALL_BIN)/tcat:	$(TOAST_INSTALL_BIN)/toast
-		-rm $@
 		ln $? $@
 
 $(TOAST_INSTALL_MAN)/toast.1:	$(MAN)/toast.1
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_MAN)/gsm.3:	$(MAN)/gsm.3
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_MAN)/gsm_option.3:	$(MAN)/gsm_option.3
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_MAN)/gsm_explode.3:	$(MAN)/gsm_explode.3
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_MAN)/gsm_print.3:	$(MAN)/gsm_print.3
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_INC)/gsm.h:	$(INC)/gsm.h
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
 $(GSM_INSTALL_LIB)/libgsm.a:	$(LIBGSM)
-		-rm $@
 		cp $? $@
 		chmod 444 $@
 
