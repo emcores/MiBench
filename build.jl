@@ -24,6 +24,7 @@ buildpath = mkpath(joinpath("build",GCC))
 @static if !parallel_build
     for b in build_sub
         wd = joinpath(buildpath,b)
+        cp(b,wd,force=true)
         eval(Expr(:call,Symbol("build_"*b),wd))
     end
 else

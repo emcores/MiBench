@@ -18,6 +18,7 @@ function build_automotive(wd)
     cd(wd)
     for app in apps
         cd(app)
+        println("Building $app")
         run(`make`)
         cd("..")
     end
@@ -32,15 +33,20 @@ function build_consumer(wd)
     subdirs = ["jpeg-6a","lame3.70","mad-0.14.2b",".","lout-3.24"]
     println("Entering $wd ...")
     cd(wd)
-    for app,sub in zip(apps,subdirs)
+    for (app,sub) in zip(apps,subdirs)
         cd(app)
+        println("Building $app")
         cd(sub)
         if app == "tiff-v3.5.4"
-            run(`./configure`)
+            run(`./configure --noninteractive`)
+        elseif app == "mad"
+            run(`./configure --without-id3tag`)
         end
         run(`make`)
         cd("..")
-        cd("..")
+        if app != "tiff-v3.5.4"
+            cd("..")
+        end
     end
     cd(cwd)
 end
@@ -54,6 +60,7 @@ function build_network(wd)
     cd(wd)
     for app in apps
         cd(app)
+        println("Building $app")
         run(`make`)
         cd("..")
     end
@@ -71,6 +78,7 @@ function build_security(wd)
     app = "pgp"
     deleteat!(apps,apps .== app)
     cd(app)
+    println("Building $app")
     cd("src")
     run(`make clean`)
     run(`make linux-portable`)
@@ -80,6 +88,7 @@ function build_security(wd)
     # handle the rest of the apps
     for app in apps
         cd(app)
+        println("Building $app")
         run(`make`)
         cd("..")
     end
@@ -97,6 +106,7 @@ function build_telecomm(wd)
     app = "adpcm"
     deleteat!(apps,apps .== app)
     cd(app)
+    println("Building $app")
     cd("src")
     run(`make`)
     cd("..")
@@ -105,6 +115,7 @@ function build_telecomm(wd)
     # handle the rest of the apps
     for app in apps
         cd(app)
+        println("Building $app")
         run(`make`)
         cd("..")
     end
