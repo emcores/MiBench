@@ -7,8 +7,6 @@ export build_automotive,
     build_security,
     build_telecomm
 
-build_office(wd) = println("build_office")
-
 function build_automotive(wd)
     println("Build: automotive")
     cwd=pwd()
@@ -62,6 +60,36 @@ function build_network(wd)
         cd(app)
         println("Building $app")
         run(`make`)
+        cd("..")
+    end
+    cd(cwd)
+end
+
+function build_office(wd)
+    println("Build: office")
+    cwd=pwd()
+
+    apps = ["ghostscript","ispell","rsynth","sphinx","stringsearch"]
+    println("Entering $wd ...")
+    cd(wd)
+    for app in apps
+        cd(app)
+        println("Building $app")
+        if app == "ghostscript"
+            cd("src")
+            run(`make`)
+            cd("..")
+        elseif app == "ispell"
+            run(`make ispell`)
+        elseif app == "rsynth"
+            run(`./configure --host='x86_64-pc-linux-gnu'`)
+            run(`make`)
+        elseif app == "sphinx"
+            run(`./configure`)
+            run(`make`)
+        elseif app == "stringsearch"
+            run(`make`)
+        end
         cd("..")
     end
     cd(cwd)
