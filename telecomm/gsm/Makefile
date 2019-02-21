@@ -290,7 +290,6 @@ install:	toastinstall gsminstall
 # The basic API: libgsm
 
 $(LIBGSM):	$(LIB) $(GSM_OBJECTS)
-		-rm $(RMFLAGS) $(LIBGSM)
 		$(AR) $(ARFLAGS) $(LIBGSM) $(GSM_OBJECTS)
 		$(RANLIB) $(LIBGSM)
 
@@ -301,11 +300,9 @@ $(TOAST):	$(BIN) $(TOAST_OBJECTS) $(LIBGSM)
 		$(LD) $(LFLAGS) -o $(TOAST) $(TOAST_OBJECTS) $(LIBGSM) $(LDLIB)
 
 $(UNTOAST):	$(BIN) $(TOAST)
-		-rm $(RMFLAGS) $(UNTOAST)
 		$(LN) $(TOAST) $(UNTOAST)
 
 $(TCAT):	$(BIN) $(TOAST)
-		-rm $(RMFLAGS) $(TCAT)
 		$(LN) $(TOAST) $(TCAT)
 
 
