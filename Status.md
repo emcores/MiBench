@@ -15,7 +15,7 @@ The results below are obtained on Ubuntu 16.04 using gcc (Ubuntu 5.4.0-6ubuntu1~
 | consumer/typeset | :white_check_mark: | :white_check_mark: |   |
 | network/dijkstra | :white_check_mark: | :white_check_mark: |   |
 | network/patricia | :white_check_mark: | :white_check_mark: |   |
-| office/ghostscript | :white_check_mark: | :white_check_mark: |   |
+| office/ghostscript | :white_check_mark: | :white_check_mark: | Used `make XCFLAGS=-DHAVE_SYS_TIME_H=1`  |
 | office/ispell | :white_check_mark: | :x: | runs but error `Illegal format hash table`  |
 | office/rsynth | :white_check_mark: | :white_check_mark: | Used `./configure --host='x86_64-pc-linux-gnu'` |
 | office/sphinx | :white_check_mark: | no runme scripts | Edited config.sub to include 'x86*' and fixed `block_actual_cdcn_norm` compile errors etc. |
