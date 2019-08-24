@@ -77,7 +77,8 @@ function build_office(wd)
         println("Building $app")
         if app == "ghostscript"
             cd("src")
-            run(`make`)
+            # use XCFLAGS to fix compilation error bug https://bugs.ghostscript.com/show_bug.cgi?id=692443
+            run(`make XCFLAGS=-DHAVE_SYS_TIME_H=1`)
             cd("..")
         elseif app == "ispell"
             run(`make ispell`)
