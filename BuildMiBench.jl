@@ -86,7 +86,7 @@ function build_office(wd)
             run(`./configure --host='x86_64-pc-linux-gnu'`)
             run(`make`)
         elseif app == "sphinx"
-            run(`./automake --add-missing`)
+            run(`automake --add-missing`)
             run(`./configure`)
             run(`make`)
         elseif app == "stringsearch"
